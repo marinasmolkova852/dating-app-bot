@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="=ie=edge">
+    <title>Astro Love</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+</head>
+<body>  
+    <div id="prof1"style="margin-bottom:50px;">
+        <div id="profile_photo">
+            {% if image %}
+                <img id="prof-photo" style="align-self: center; object-fit: contain;" src="{{ image }}"/>
+            {% else %}
+                <img id="prof-photo" style="align-self: center; object-fit: contain;" src="/static/img/add_photo.png"/>
+                <!--<span style="text-align:center;color: #d880d1;font-size: 20pt;padding: 20px 20px; position:relative; margin:auto;">+ Добавить фото</span>-->
+            {% endif %}
+        </div>
+        <p></p>
+        <div style="text-align:center;border-bottom: 1px solid #d880d1; border-left: 1px solid #d880d1; border-right: 1px solid #d880d1;border-radius: 15px;">
+            <img src="/static/img/match_currency.png" id="pr_style" style="width:5%; top:0px;"/>
+            <span id="username" style="display:inline-block;font-size: 20pt; color: #d880d1;text-align:center;margin-bottom:10px;">{{ form.name }}</span>
+            <img src="/static/img/match_currency.png" id="pr_style" style="width:5%; top:0px;"/>
+			<div style=" display:flex; flex-wrap: wrap; flex-direction: row; margin-right:5px; margin-left:5px; justify-content: center; align-content: space-around;gap:5px 5px;">
+    			<img src="{{ sign_path }}" style="width:40px;height:40px;padding: 5px 10px;border: 1px solid #d880d1;border-radius: 15px;" />
+                <span style="display:flex; align-items:center; justify-content:center; height:50px;font-size: 13pt;padding: 0 10px;border: 1px solid #d880d1;border-radius: 15px;color: #d2ccff;">{{ age }}</span>
+                <span style="display:flex; align-items:center; justify-content:center; height:50px;font-size: 13pt;padding: 0 10px;border: 1px solid #d880d1;border-radius: 15px;color: #d2ccff;">{{ form.social }}</span>
+    			<span style="display:flex; align-items:center; justify-content:center; height:50px;font-size: 13pt;padding: 0 10px;border: 1px solid #d880d1;border-radius: 15px;color: #d2ccff;">{{ form.location }}</span>
+    			<span style="display:flex; align-items:center; justify-content:center; height:50px;font-size: 13pt;padding: 0 10px;border: 1px solid #d880d1;border-radius: 15px;color: #d2ccff;">{{ form.searching }}</span>
+			</div>
+			 <p style="margin-bottom:-10px;"></p>
+		</div>
+		<div id="icons" style="text-decoration:none; ">
+		<p id="user_tariff" style="text-align:center; color:#d880d1;margin-bottom:-10px; font-size: 16pt;">Текущий тариф: {{ tariff }}</p>
+            {% if tariff == "VIP" or tariff == "SUPER VIP" %}
+                <p style=" font-size: 15pt;color:#d2ccff;margin-bottom:10px;">Баланс мэтчей: ∞
+                <img src="/static/img/match_currency.png" id="icons img" style="width:5%; top:0px;"/></p>
+            {% else %}
+                <p style=" font-size: 15pt;color:#d2ccff;margin-bottom:10px;">Баланс мэтчей: {{ amount_matches }}
+                <img src="/static/img/match_currency.png" id="icons img" style="width:5%; top:0px;"/></p>
+            {% endif %}
+        </div>
+	    <div id="icons" style="text-decoration:none; ">
+    		<img src="/static/img//icons_profile.png" id="icons img" style="width:8%;" />
+    		<span style="color:#d2ccff;font-size: 13pt;margin-left:5px;"id="info">Личная информация</span>	
+        </div>
+    </div>
+ <!--   <div id="aboutme"style="margin-bottom:50px;">-->
+	<!--	<img src="/static/img/logo_neon_cut.png" alt="INTRO" />-->
+	<!--	<div style="color: #d2ccff;">-->
+ <!--           <div>-->
+ <!--               <table class="table-bordered">-->
+ <!--                   <tbody>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                               <span style="font-size: 13pt;">Дата рождения: {{ form.birth_dt }}</span>-->
+ <!--                           </li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                               <span style="font-size: 13pt;">Место рождения: {{ form.birth_place }}</span>-->
+ <!--                           </li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                              <span style="font-size: 13pt;">Ориентация: {{ form.orientation }}</span>-->
+ <!--                           </li>-->
+ <!--                      </tr>-->
+                
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                               <span style="font-size: 13pt;">Статус отношений: {{ form.status }}</span>-->
+ <!--                           </li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                               <span style="font-size: 13pt;">Разница в возрасте, если старше: {{ form.older_gap }}</span>-->
+ <!--                           </li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                               <span style="font-size: 13pt;">Разница в возрасте, если младше: {{ form.younger_gap }}</span>-->
+ <!--                           </li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                               <span style="font-size: 13pt;">Отношения на расстоянии: {{ form.distance }}</span>-->
+ <!--                           </li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                               <span style="font-size: 13pt;text-decoration:underline;text-underline-offset:5px; text-decoration-thickness:1px;">Описание своей внешности</span>-->
+ <!--           					<p style="font-size: 13pt;">Рост: {{ my_appearance.height }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Телосложение: {{ my_appearance.physique }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Цвет волос: {{ my_appearance.hair_color }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Тип волос: {{ my_appearance.hair_type }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Цвет глаз: {{ my_appearance.eye_color }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Цвет кожи: {{ my_appearance.skin_color }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Тип лица: {{ my_appearance.face_type }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Татуировки: {{ my_appearance.tattoos }}</p>-->
+ <!--       					</li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                              <span style="font-size: 13pt;">Описание моего характера: {{form.my_character}}</span>-->
+ <!--       					</li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                               <span style="font-size: 13pt;">Что могу предложить: {{ form.gives }}</span>-->
+ <!--                           </li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                               <span style="font-size: 13pt;">Что хочу получить: {{ form.gets }}</span>-->
+ <!--                           </li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                               <span style="font-size: 13pt;text-decoration:underline;text-underline-offset:5px; text-decoration-thickness:1px;">Идеальный тип</span>-->
+ <!--           					<p style="font-size: 13pt;">Рост: {{ partner_appearance.height }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Телосложение: {{ partner_appearance.physique }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Цвет волос: {{ partner_appearance.hair_color }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Тип волос: {{ partner_appearance.hair_type }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Цвет глаз: {{ partner_appearance.eye_color }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Цвет кожи: {{ partner_appearance.skin_color }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Тип лица: {{ partner_appearance.face_type }}</p>-->
+ <!--           					<p style="font-size: 13pt;">Татуировки: {{ partner_appearance.tattoos }}</p>-->
+ <!--           				</li>-->
+ <!--                       </tr>-->
+ <!--                       <tr style="width: 100%;">-->
+ <!--                           <li>-->
+ <!--                              <span style="font-size: 13pt;">Описание характера идеального партнера: {{form.partner_character}}</span>-->
+ <!--       					</li>-->
+ <!--                       </tr>-->
+ <!--                   </tbody>-->
+ <!--               </table>-->
+ <!--           </div>-->
+ <!--           <div id="icons" style="text-decoration:none;display:none">-->
+ <!--   		<img id="icons img" src="/static/img/icons_redact.png" style="width:8%;"/>-->
+ <!--   		<span id="change_form" style="color:#d2ccff; font-size:13pt; margin-left:5px;">Редактировать анкету</span>-->
+ <!--           </div>-->
+ <!--           <div style="text-align:center;"><button id="delete_form" class="button-28" style="width:70%;">Удалить анкету</button></div>-->
+ <!--       </div>-->
+	<!--</div>-->
+    <footer>
+        <table class="table-bordered" style="background-color:#2d1330;  margin:auto; width:100%; ">
+            <tbody>
+                <td><img src="/static/img/icon_profile.png" style="width:40%;margin:auto;" id="profile"/></td>
+                    <td><img src="/static/img/icon_love.png" style="width:40%;margin:auto;" id="love_in_me"/></td>
+                <td><img src="/static/img/icon_match.png" style="width:40%;margin:auto;"id="match" ></td>
+                    <td><img src="/static/img/icon_speedometr.png" style="width:40%;margin:auto;" id="speedometr"/></td>
+                <td><img src="/static/img/icon_tarif.png" style="width:40%; margin:auto;"id="payment"></td>
+            </tbody> 
+        </table>
+    </footer>
+    <script src="/static/js/menu_control.js?v=1.0.1"></script>
+    <script src="/static/js/profile_control.js?v=1.0.2"></script>
+</body>
+</html>

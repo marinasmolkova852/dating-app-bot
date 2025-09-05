@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="=ie=edge">
+        <title>Astro Love</title>
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <body>
+	<div id="speedomter" style="color: #d2ccff;text-align:center;  margin-bottom:60px;">
+		<p style="margin-bottom:-10px;"></p>	
+<span id="headline"  style="font-size: 20pt; color: #d880d1; text-align:center;">Спидометр совместимости</span>
+		<p style="margin-bottom:-10px;"></p>	
+<p id="headline"  style="font-size: 14pt; color: #d2ccff; text-align:center; width:90%;line-height: 30px; margin:auto;">
+Совместимость — это стартовая точка отношений, которая показывает их потенциал.<br> У кого-то она изначально высокая, у кого-то низкая, но главное — ваш выбор и желание развиваться 
+	</p>
+
+	
+
+		
+<table class="table-bordered" style="width:100%;height:90%; margin-left:auto;margin-right:auto; text-align:center; bottom:20px;position:relative;">
+			    <tbody>
+			         <tr style="height:50px;">
+	 <td style="width:5%;  margin-left:auto;margin-right:auto; "> </td>
+		 <td style="width:90%;height:90%; margin-right:0px; margin-left:-10px; ">
+
+	    <img src="/static/img/speedometr_base.png" style="z-index: 1; height:90%;object-fit:cover; position:relative; width:100%; margin-left:auto;margin-right:auto;"/>
+	<div style=" position: relative;max-height:10px;">
+			<div class ="arrow" style="width: 10%; height:auto; margin-left:auto;margin-right:auto; position:relative;bottom:230px; left:0px;">
+		<img src="/static/img/speedomet_arrowr.png" style="z-index: 1;margin-left:auto;margin-right:auto; width:inherit; height:inherit;"/>
+		</div>
+			<img src="/static/img/icon_heart_speedometr.png" style="width:80%; height:auto;object-fit:cover; bottom:380px;position:relative; margin-left:auto; margin-right:auto;z-index: 3;" />
+         </div>
+		
+		      </td>
+		      <td style="width:5%; margin-left:auto;margin-right:auto; ">
+		     </td>
+		    
+</tr>
+		     </tbody> 
+</table>
+
+		<table class="table-bordered" style="width:100%; text-align:center; position:relative;bottom:30px;  ">
+ <tbody>
+	 <td style="width:50%;  margin:auto;">
+<div style="border: 1px solid #d880d1;
+    border-radius: 25px; text-align:center; " >
+	<p style="font-size: 13pt;color: #d2ccff;">Первый партнер</p>
+	<input type="text" id="date" placeholder="Дата рождения" required/>
+			<input type="text" id="place" placeholder="Знак зодиака" />
+		
+	
+		
+		 </div>
+	</td>
+	<td></td>	<td></td>
+	 <td style="width:50%;  margin:auto;">
+<div style="border: 1px solid #d880d1;
+    border-radius: 25px; text-align:center;" >
+	<p style="font-size: 13pt;color: #d2ccff;">Второй партнер</p>
+	<input type="text" id="date" placeholder="Дата рождения" required/>
+			<input type="text" id="place" placeholder="Знак зодиака" />
+			
+	
+		
+		 </div>
+	</td>
+<tr>
+
+ 
+</tr>
+ </tbody> 
+</table>		
+		
+        <button id="count" style="position:relative;bottom:30px; " class="button-28" role="button" onclick="sovmest();">Рассчитать</button>
+		</div>
+		<div id="sovmest_info"style="margin-bottom:60px;">
+			<div class="details-new-variant" style=" text-align:center; width:100%; margin:auto;">
+		<p></p>			
+			<span  style="font-size: 20pt; color: #d880d1;text-align:center;">Общая совместимость </span><span style="border: 1px solid #d880d1; display:inline-block;
+
+    color: #d880d1;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+							 font-size: 20px;">
+	<a href="#zatemnenie_proc" style="color:#d880d1;">?</a></span>
+
+ 	 <div id="zatemnenie_proc">
+      <div id="okno_proc">
+          Совместимость может отличаться от совместимости в мэтчах, потому что в мэтчах мы учитываем и анализируем анкеты <br>
+        <a href="#" class="close">Закрыть</a>
+      </div>
+    </div>
+				<div id="zatemnenie_element2">
+      <div id="okno_element2">
+        Мутабельные знаки (Близнецы, Дева, Стрелец, Рыбы) - легко приспосабливаются к окружающей обстановке, к людям. Находятся в состоянии посередине между активными решительными действиями и безынициативности. <br>
+Земля (Телец, Дева, Козерог) - надежные, приземленные, верные, преданные, практичные, ответственные. Способны смотреть на мир реалистично, без иллюзий. Не умеют рисковать, быстро принимать решения, они очень осторожны и должны сначала полностью убедиться, что могут что-то предпринять. Когда решение принято, то появляется огромная сила, выдержка для достижения цели. 
+<br>
+        <a href="#" class="close">Закрыть</a>
+      </div>
+    </div>
+				<div id="zatemnenie_zodiak2">
+      <div id="okno_zodiak2">
+        	Фиксированный огонь 🔥 (медленный огонь)<br>
+ Яркий, демонстративный и энергичный человек. Но в отличие от Овна, энергию тратит на то дело, которому он предан, от которого получает удовольствие и неважно, сколько на это времени потребуется (Овну же интересно сиюминутное увлечение).<br> Это благородный и щедрый человек, но взамен ему важна похвала, аплодисменты, он хочет быть замеченным, быть в центре внимания.   
+<br>
+        <a href="#" class="close">Закрыть</a>
+      </div>
+    </div>
+				<div id="zatemnenie_element1">
+      <div id="okno_element1">
+-	Мутабельная земля🌳 (хитрая земля) <br>
+• Надежный человек, который обращает внимание на мелкие детали, умеет концентрироваться на мелочах, от этого его могут считать занудливым, придирчивым и мелочным. Работоспособный.<br> Часто выполняет свою работу самостоятельно, не поручает ее другим, так как считает, что только он может выполнить ее идеально. Про него говорят «в чужом глазу соринку увидит, а в своем бревна не заметит». 
+<br>
+        <a href="#" class="close">Закрыть</a>
+      </div>
+    </div>
+				<p></p>
+				<table class="table-bordered" style="width:100%; text-align:center; margin:auto; ">
+ <tbody>
+	 <td style="margin:auto;width:50%; " >
+<img src="/static/img/signs/icon_virgo.png" style="width:50%;margin:auto;">
+	</td>
+	<td rowspan="2" style="border: 1px solid #d880d1; margin:auto;
+    color: #d880d1;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px; display:inline-block;">
+	    <span style="font-size: 50px;margin:auto; position:relative; top:25px;">26</span>
+	    </td>
+	 <td style="margin:auto;width:40%; ">
+<img src="/static/img/signs/icon_leo.png" style="width:50%;margin:auto;">
+	</td>
+<tr>
+<td rowspan="2" style="width: 50%; margin:auto;"> 
+<span style="font-size: 13pt;color: #d2ccff; ">Дева <span style="border: 1px solid #d880d1; display:inline-block;
+
+    color: #d880d1;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+							 font-size: 20px;">
+	<a href="#zatemnenie_element2" style="color:#d880d1;">?</a></span><br>мутабельная земля<span style="border: 1px solid #d880d1; display:inline-block;
+
+    color: #d880d1;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+							 font-size: 20px;">
+	<a href="#zatemnenie_element1" style="color:#d880d1;">?</a></span></span>
+</td>
+ 
+	  <td></td>
+  
+
+<td rowspan="2" style="width: 40%; margin:auto;"> 
+<span style="font-size: 13pt;color: #d2ccff; ">Лев <span style="border: 1px solid #d880d1; display:inline-block;
+
+    color: #d880d1;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+							 font-size: 20px;">
+	<a href="#zatemnenie_zodiak2" style="color:#d880d1;">?</a></span><br>фиксированный огонь </span>
+</td>
+</tr>
+ </tbody> 
+</table>
+			<p></p>			
+			<span  style="font-size: 18pt; color: #d880d1;text-align:center;">Тип отношений: Лучший друг </span><span style="border: 1px solid #d880d1; display:inline-block;
+
+    color: #d880d1;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+							 font-size: 20px;">
+	<a href="#zatemnenie_type" style="color:#d880d1;">?</a></span>
+
+ 	 <div id="zatemnenie_type">
+      <div id="okno_type">
+         Эта совместимость всегда с химией! Но какой? - вопрос хороший <br>
+Здесь все зависит в какой вы позиции: лучшего врага или лучшего друга. В позиции лучшего врага вы всегда будете больше требовать, а в позиции лучшего друга будете ощущать некую зависть 
+
+<br>
+        <a href="#" class="close">Закрыть</a>
+      </div>
+    </div>
+				<p></p>
+				
+		<table class="table-bordered" style="width:90%; text-align:center; ">
+ <tbody>
+	 <td>
+<div style="background:  #d880d1; margin:auto; 
+    border-radius: 50%;
+    width: 80px;
+    height: 80px; display:inline-block;" >
+	<span style="font-size: 40px;margin:auto; position:relative; top:25px;color: white;text-align:center; ">67</span>
+	
+		<p style="font-size: 13pt;color: #d2ccff; top:25px; position:relative; ">Любовь</p>
+		 </div>
+	</td>
+	<td rowspan="2">
+		<div style="background:  #d880d1; margin:auto; 
+    border-radius: 50%;
+    width: 80px;
+    height: 80px; display:inline-block;" >
+	<span style="font-size: 40px; margin:auto; position:relative; top:25px;color: white;text-align:center; ">48</span>
+	
+		<p style="font-size: 13pt; color: #d2ccff; top:25px; right:15px; position:relative;">Конфликтность</p>
+		 </div>
+	 </td>
+	<td rowspan="2">
+		<div style="background:  #d880d1; margin:auto; 
+    border-radius: 50%;
+    width: 80px;
+    height: 80px; display:inline-block;" >
+	<span style="font-size: 40px;margin:auto; position:relative; top:25px;color: white;text-align:center; ">56</span>
+	
+		<p style="font-size: 13pt;color: #d2ccff; top:25px; position:relative; ">Секс</p>
+		 </div>
+	 
+	</td>
+<tr>
+
+ 
+</tr>
+ </tbody> 
+</table>		
+		<p></p>
+		<table class="table-bordered" style="width:60%; text-align:center; ">
+ <tbody>
+	 <td>
+<div style="background:  #d880d1; margin:auto; 
+    border-radius: 50%;
+    width: 80px;
+    height: 80px; display:inline-block;" >
+	<span style="font-size: 40px;margin:auto; position:relative; top:25px;color: white;text-align:center; ">48</span>
+	
+		<p style="font-size: 13pt;color: #d2ccff; top:25px; position:relative; ">Дети</p>
+		 </div>
+	</td>
+	<td rowspan="2">
+		<div style="background:  #d880d1; margin:auto; 
+    border-radius: 50%;
+    width: 80px;
+    height: 80px; display:inline-block;" >
+	<span style="font-size: 40px; margin:auto; position:relative; top:25px;color: white;text-align:center; ">89</span>
+	
+		<p style="font-size: 13pt;color: #d2ccff; top:25px; position:relative; ">Семья</p>
+		 </div>
+	 </td>
+	
+<tr>
+
+ 
+</tr>
+ </tbody> 
+</table>
+			
+		</div>
+			<p style="margin-bottom:60px;"></p>
+			 <table class="table-bordered">
+            <tbody>
+                <tr style="width: 100%;">
+                        <li>
+					 <details style="color: #d880d1;">
+                <summary><span style="font-size: 13pt;"><strong>Общая совместимость</strong></span></summary>
+				 <p></p><span style="text-align: center;
+        padding: 15px;
+		font-size: 13pt; color:#d2ccff;">
+				     Партнёры как будто говорят на разных языках. Им трудно понять друг друга, даже при наличии влечения. Отношения могут быть бурными, но нестабильными. Рекомендуется избегать союза, если нет особых причин идти на жертвы.
+				 </span>
+
+		</details>
+					</li>
+                   </tr>
+				 <tr style="width: 100%;">
+                        <li>
+					 <details style="color: #d880d1;">
+                <summary><span style="font-size: 13pt;"><strong>Любовь</strong></span></summary>
+				 <p></p>
+
+		</details>
+					</li>
+                   </tr>
+				<tr style="width: 100%;">
+                        <li>
+					 <details style="color: #d880d1;">
+                <summary><span style="font-size: 13pt;"><strong>Конфликтность</strong></span></summary>
+				 <p></p>
+
+		</details>
+					</li>
+                   </tr>
+				<tr style="width: 100%;">
+                        <li>
+					 <details style="color: #d880d1;">
+                <summary><span style="font-size: 13pt;"><strong>Секс</strong></span></summary>
+				 <p></p>
+
+		</details>
+					</li>
+                   </tr>
+				<tr style="width: 100%;">
+                        <li>
+					 <details style="color: #d880d1;">
+                <summary><span style="font-size: 13pt;"><strong>Дети</strong></span></summary>
+				 <p></p>
+
+		</details>
+					</li>
+                   </tr>
+				<tr style="width: 100%;">
+                        <li>
+					 <details style="color: #d880d1;">
+                <summary><span style="font-size: 13pt;"><strong>Семья</strong></span></summary>
+				 <p></p>
+
+		</details>
+					</li>
+                   </tr>
+				 </tbody>
+			</table>
+			<button class="button-28" role="button" ><a href=".">Рассчитать снова</a></button>
+			</div>
+           <footer>
+            <table class="table-bordered" style="background-color:#2d1330; height:50%; margin:auto; width:100%; ">
+                <tbody>
+                    <tr>
+                    <td><img src="/static/img/icon_profile.png" style="width:40%;margin:auto;" id="profile"/></td>
+                    <td><img src="/static/img/icon_love.png" style="width:40%;margin:auto;" id="love_in_me"/></td>
+                    <td><img src="/static/img/icon_match.png" style="width:50%;margin:auto;"id="match" ></td>
+                    <td style="width:20%;"><img src="/static/img/icon_speedometr.png" style="width:40%;margin:auto;" id="speedometr"/></td>
+                   <td><img src="/static/img/icon_tarif.png" style="width:40%; margin:auto;"id="payment"></td>
+                   </tr>
+                   <tr>
+                    <td rowspan="2" ><span style="display:flex;font-size: 10pt;padding: 3px; flex-wrap: wrap;  justify-content: center;flex-direction: row; align-content: space-around; color: #d880d1;">Профиль</span></td>
+                      <td rowspan="2"><span style="display:flex;font-size: 10pt;padding: 3px; flex-wrap: wrap;  justify-content: center;flex-direction: row; align-content: space-around; color: #d880d1;">Любовь</span></td>
+                    <td rowspan="2" ><span style="display:flex;font-size: 10pt;padding: 3px; flex-wrap: wrap;  justify-content: center;flex-direction: row; align-content: space-around; color: #d880d1;">Мэтчи</span></td>
+                       <td rowspan="2" > <span style="display:flex;font-size: 10pt;padding: 3px; flex-wrap: wrap;  justify-content: center;flex-direction: row; align-content: space-around; color: #d880d1;">Спидометр</span></td>
+                   <td rowspan="2" > <span style="display:flex;font-size: 10pt;padding: 3px; flex-wrap: wrap;  justify-content: center;flex-direction: row; align-content: space-around; color: #d880d1;">Тарифы</span></td>
+                </tr>
+                </tbody> 
+            </table>
+        </footer>
+        <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+        <script src="/static/js/speed_anim.js"></script>
+    </body>
+</html>

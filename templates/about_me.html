@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="=ie=edge">
+        <title>Astro Love</title>
+        <link rel="stylesheet" href="/static/css/main.css">
+        <style>
+            .container {
+              max-width: 768px;
+              margin: 0 auto;
+              padding: 10px;
+            }
+        
+            .card {
+              background: rgba(255, 255, 255, 0.05);
+              border-radius: 12px;
+              padding: 20px;
+              margin-bottom: 25px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+              transition: transform 0.2s;
+            }
+        
+            .card:hover {
+              transform: translateY(-4px);
+            }
+        
+            .card h2 {
+              font-size: 24px;
+              margin: 5px;
+              margin-bottom: 15px;
+              color: #d880d1;
+            }
+        
+            ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+        
+            ul li {
+              border: 0;
+              display: flex;
+              align-items: center;
+              padding: 5px;
+            }
+        
+            ul li span {
+              font-size: 16px;  
+              margin-left: 0.5rem;
+              color: #d2ccff;
+              line-height: 20px;
+            }
+        
+            .taglist {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 6px;
+            }
+        
+            .tag {
+              background: #c96bff30;
+              color: #e8dcff;
+              padding: 7px 14px;
+              border: 2px solid #9455be40;
+              border-radius: 20px;
+              font-size: 16px;
+              font-weight: 600;
+            }
+        </style>
+        <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    </head>
+    <body>
+        <div id="about_me" style="margin-bottom:50px;">
+    		<img src="/static/img/logo_neon_cut.png" alt="INTRO" />
+    		<p></p>
+    		<div class="container">
+                <div class="card">
+                  <h2>📅 Основная информация</h2>
+                  <ul>
+                    <li>🎂 <span>Дата рождения: {{ form.birth_dt }}</span></li>
+                    <li>🌍 <span>Место рождения: {{ form.birth_place }}</span></li>
+                    <li>💖 <span>Ориентация: {{ form.orientation }}</span></li>
+                    <li>🔓 <span>Статус: {{ form.status }}</span></li>
+                    <li>⏳ <span>Допустимая разница: если старше – {{ form.older_gap }}, если младше – {{ form.younger_gap }}</span></li>
+                    <li>✈️ <span>Отношения на расстоянии: {{ form.distance }}</span></li>
+                    <li>🧭 <span>Жизненные ценности: {{ form.moral_values }}</span></li>
+                    <li>🧠 <span>О себе: {{ form.about_me }}</span></li>
+                  </ul>
+                </div>
+            
+                <div class="card">
+                    <h2>🧟 Моя внешность</h2>
+                    {% if my_appearance %}
+                        <ul>
+                            <li>📏 <span>{{ my_appearance.height }} рост</span></li>
+                            <li>💪 <span>{{ my_appearance.physique }} телосложение</span></li>
+                            {% if my_appearance.hair_color == "Блондин" or my_appearance.hair_color == "Брюнет" or my.hair_color == "Шатен"%}
+                                <li>💇 <span>{{ my_appearance.hair_color }}, {{ my_appearance.hair_type | lower }} волосы</span></li>
+                            {% elif my_appearance.hair_color == "Русые" or my_appearance.hair_color == "Рыжие" or my_appearance.hair_color == "Седые" or my_appearance.hair_color == "Крашеные" %}
+                                <li>💇 <span>{{ my_appearance.hair_color }}, {{ my_appearance.hair_type | lower }} волосы</span></li>
+                            {% else %}   
+                                <li>💇 <span>{{ my_appearance.hair_color }}</span></li>
+                            {% endif %}
+                            <li>👀 <span>{{ my_appearance.eye_color }} глаза</span></li>
+                            <li>🤍 <span>{{ my_appearance.skin_color }} кожа</span></li>
+                            <li>✨ <span>{{ my_appearance.face_type }}</span></li>
+                            {% if my_appearance.tattoos == "Есть" %}
+                                <li>🎨 <span>{{ my_appearance.tattoos }} татуировки</span></li>
+                            {% else %}
+                                <li>🎨 <span>{{ my_appearance.tattoos }} татуировок</span></li>
+                            {% endif %}
+                        </ul>
+                    {% else %}
+                        <div class="taglist">
+                            <div class="tag">Нет описания</div>
+                        </div>
+                    {% endif %}
+                </div>
+            
+                <div class="card">
+                    <h2>🎭 Мой характер</h2>
+                    <div class="taglist">
+                        {% for char in my_character %}
+                            <div class="tag">{{ char }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card">
+                    <h2>🧩 Мои интересы</h2>
+                    <div class="taglist">
+                        {% for interest in interests %}
+                            <div class="tag">{{ interest }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card">
+                    <h2>💌 Могу предложить партнеру</h2>
+                    <div class="taglist">
+                        {% for give_for in gives %}
+                            <div class="tag">{{ give_for }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            
+                <div class="card">
+                    <h2>🤲 Хочу получить от партнера</h2>
+                    <div class="taglist">
+                        {% for get_from in gets %}
+                            <div class="tag">{{ get_from }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            
+                <div class="card">
+                    <h2>🔥 Внешность партнера</h2>
+                    {% if partner_appearance %}  
+                        <ul>
+                            <li>📏 <span>{{ partner_appearance.height }} рост</span></li>
+                            <li>💪 <span>{{ partner_appearance.physique }} телосложение</span></li>
+                            {% if partner_appearance.hair_color == "Блондин" or partner_appearance.hair_color == "Брюнет" or partner_appearance.hair_color == "Шатен"%}
+                                <li>💇 <span>{{ partner_appearance.hair_color }}, {{ my_appearance.hair_type | lower }} волосы</span></li>
+                            {% elif partner_appearance.hair_color == "Русые" or partner_appearance.hair_color == "Рыжие" or partner_appearance.hair_color == "Седые" or partner_appearance.hair_color == "Крашеные" %}
+                                <li>💇 <span>{{ partner_appearance.hair_color }} {{ my_appearance.hair_type | lower }} волосы</span></li>
+                            {% else %}
+                                <li>💇 <span>{{ partner_appearance.hair_color }} </span></li>
+                            {% endif %}
+                            <li>👀 <span>{{ partner_appearance.eye_color }} глаза</span></li>
+                            <li>🤍 <span>{{ partner_appearance.skin_color }} кожа</span></li>
+                            <li>✨ <span>{{ partner_appearance.face_type }}</span></li>
+                            {% if partner_appearance.tattoos == "Есть" %}
+                                <li>🎨 <span>{{ partner_appearance.tattoos }} татуировки</span></li>
+                            {% else %}
+                                <li>🎨 <span>{{ partner_appearance.tattoos }} татуировок</span></li>
+                            {% endif %}
+                          </ul>
+                    {% else %}
+                        <div class="taglist">
+                            <div class="tag">Не имеет значения</div>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="card">
+                    <h2> ⭐️ Характер партнера</h2>
+                    <div class="taglist">
+                        {% for part_char in partner_character %}
+                            <div class="tag">{{ part_char }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div style="text-align:center;margin:0;">
+                    <button id="delete_form" class="button-28" style="width:60%;border-radius:20px;">Удалить анкету</button>
+                </div>	
+    		</div>
+    		
+    	    <!--<div id="icons" style="text-decoration:none;display:none">-->
+        <!--   		<img id="icons img" src="/static/img/icons_redact.png" style="width:8%;"/>-->
+        <!--   		<span id="change_form" style="color:#d2ccff; font-size:13pt; margin-left:5px;">Редактировать анкету</span>-->
+            <!--</div>-->
+        </div>
+        <footer>
+            <table class="table-bordered" style="background-color:#2d1330;  margin:auto; width:100%; ">
+                <tbody>
+                    <td><img src="/static/img/icon_profile.png" style="width:40%;margin:auto;" id="profile"/></td>
+                    <td><img src="/static/img/icon_love.png" style="width:40%;margin:auto;" id="love_in_me"/></td>
+                    <td><img src="/static/img/icon_match.png" style="width:40%;margin:auto;"id="match" ></td>
+                    <td><img src="/static/img/icon_speedometr.png" style="width:40%;margin:auto;" id="speedometr"/></td>
+                    <td><img src="/static/img/icon_tarif.png" style="width:40%; margin:auto;"id="payment"></td>
+                </tbody> 
+            </table>
+        </footer>
+        <script src="/static/js/menu_control.js?v=1.0.1"></script>
+        <script src="/static/js/about_me_control.js?v=1.0.1"></script>
+    </body>
+</html>

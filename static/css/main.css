@@ -1,0 +1,1112 @@
+
+@font-face {
+    font-family: "Futuris Cyrillic";
+    src: local("Futuris-Cyrillic"), local("Futuris-Cyrillic"),
+	src: url("../fonts/futuris-cyrillic.eot"); /* IE9 Compat Modes */
+	src: url("../fonts/futuris-cyrillic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+		url("../fonts/futuris-cyrillic.otf") format("opentype"), /* Open Type Font */
+		url("../fonts/futuris-cyrillic.svg") format("svg"), /* Legacy iOS */
+		url("../fonts/futuris-cyrillic.ttf") format("truetype"), /* Safari, Android, iOS */
+		url("../fonts/futuris-cyrillic.woff") format("woff"), /* Modern Browsers */
+		url("../fonts/futuris-cyrillic.woff2") format("woff2"); /* Modern Browsers */
+	font-weight: normal;
+	font-style: normal;
+}
+
+html, body {
+    min-height: 100%;
+    background: linear-gradient(#001332, #321332);
+    font-size: 24px;
+    font-family: "Futuris Cyrillic", sans-serif !important;
+    text-rendering: optimizeLegibility;
+    font-weight: 600;
+    flex: 1; 
+    display: flex; 
+    flex-direction: column;
+}
+
+footer { 
+    bottom:0;
+	position: fixed;
+	margin-right:-10px;
+	margin-left:-10px;
+}
+#top{ 
+    margin-top: auto;
+	border-bottom: 1px solid #d880d1;
+    border-radius: 15px;
+	height: 45px;
+}
+h1 {
+    font-family: 'Futuris Cyrillic',  sans-serif !important;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.speedometer{
+	position: absolute;
+	height:auto;
+}
+@keyframes rotate {
+	
+	0% {
+		transform: rotate(-90deg);
+	}
+	50% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(90deg);
+	}
+}
+
+.arrow {
+	transform: rotate(-90deg);
+	transform-origin:bottom;
+}
+.arrow-rotate{
+		animation: rotate 3s ;
+}
+
+#love_count{
+	display:none;
+}
+
+.heart {
+	position: relative;
+width: 340px; 
+height: 310px;
+left:0;
+margin: auto;
+
+}
+.heart:before, 
+.heart:after {
+content: "";
+position: absolute; 
+left: 180px; 
+width: 180px; 
+height: 300px;
+/*background: #d880d1;*/
+border-radius: 90px 90px 0 0;
+transform: rotate(-45deg); 
+transform-origin: 0 100%;
+}
+.heart:after {
+left: 0;
+transform: rotate(45deg); 
+transform-origin: 100% 100%;
+}
+
+.heart-show {
+  /* Поднимаем второй тултип обратно вверх при появлении */
+  
+}
+
+#know_love{
+	display: none;
+}
+
+:root {
+  --stroke-width: 0.1px;
+  --heart-width: 100%;
+  --transition-length: 3s;
+  --heart-color:#d880d1;
+}
+
+.heart-container {
+  position: relative;
+  width:345px;
+  margin-left: auto;
+  margin-right: auto;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  clip-path: url(#svgClip);
+  margin: auto;
+  bottom:305px;
+}
+
+.heart-clip {
+  appearance: none;
+  margin: 0px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+ 
+}
+
+.heart-clip + .fill {
+  top:0;
+  left:0;
+  transform: translateY(50%);
+  width: calc(2 * var(--heart-width, 100px));
+  aspect-ratio: 1/1;
+  transition: transform var(--transition-length, 0s) cubic-bezier(.2, .6, .8, .4);
+}
+ 
+.heart-clip:checked + .fill {
+  transform: translateY(0);
+ 
+}
+
+.heart-stroke {
+  width: calc(100% - (2 * var(--stroke-width, 2px)));
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: var(--stroke-width, 0);
+  left: var(--stroke-width, 0);
+  fill: transparent;
+  stroke: var(--heart-color);
+  stroke-width: var(--stroke-width, 1px);
+}
+
+.waveShape {
+  animation-name: waveAction;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  fill: var(--heart-color);
+}
+
+@keyframes waveAction {
+  0% {
+     transform: translate(-175px, 0px);
+  }
+  100% {
+     transform: translate(0px, 0px);
+  }
+}
+
+.tooltip {
+
+  /* Описываем переход */
+  transition: opacity 3s, visibility 3s, transform 3s;
+  /* Прячем элемент */
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.tooltip-transform {
+  /* Поднимаем второй тултип обратно вверх при появлении */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100px);
+}
+
+
+.outer {
+  margin: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.outer__button { 
+  padding: .5em 1.5em;
+  font-size: 2em;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  margin-top: -1em;
+  border-radius: 100vh;
+}
+
+
+/* BOTTOM TO TOP */
+.button__bottom-top {
+  border: 2px solid black;
+  background: linear-gradient(to top, #000 50%, #fff 50%);
+  background-size: 100% 200%;
+  background-position: top left;
+  transition: all .5s ease-out;
+}
+.button__bottom-top:hover {
+  border: 2px solid limegreen;
+  background-position: bottom left;
+  color: #fff;
+}
+
+
+
+.screen{
+	width:350px;
+	height:350px;
+	position:relative;
+	margin:auto;
+	 
+	background: linear-gradient(#001332, #321332);
+	z-index:2;
+}
+#number{
+	display:none;
+}
+
+
+#sovmest_info{
+	 display:none;
+}
+
+
+
+#zatemnenie_proc{
+        background:  rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+	    z-index: 9999;
+      }
+#zatemnenie_type{
+        background:  rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+	    z-index: 9999;
+      }
+      #okno_proc{
+        max-width: 80%;
+        max-height: 30%;
+        text-align: center;
+        padding: 15px;
+		font-size: 13pt;
+        border: 1px solid #d880d1;
+        border-radius: 10px;
+        color:#d2ccff;
+        position: relative;
+        top: 230px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: linear-gradient(#001332, #321332);
+		z-index: 9999;
+      }
+#okno_type{
+        max-width: 80%;
+        max-height: 30%;
+        text-align: center;
+        padding: 15px;
+		font-size: 13pt;
+        border: 1px solid #d880d1;
+        border-radius: 10px;
+        color:#d2ccff;
+        position: relative;
+        top: 230px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: linear-gradient(#001332, #321332);
+		z-index: 9999;
+      }
+
+#zatemnenie_zodiak1{
+        background:  rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+	    z-index: 9999;
+	    line-height: 25px;
+	
+      }
+#zatemnenie_zodiak1:target {display: block;}
+      .close {
+        display: block;
+        border: 1px solid #d880d1;
+        color: #d2ccff;
+		border-radius: 10px;
+        padding: 10px 10px;
+        margin: 10px;
+        text-decoration: none;
+        font-size: 13pt;
+        cursor:pointer;
+		margin-bottom:0;
+		position: fixed;
+		margin-top: 30px;
+        margin-left: 30px;
+      }
+      #okno_zodiak1{
+        max-width: 80%;
+        max-height: 55%;
+        text-align: center;
+        padding: 15px;
+		font-size: 13pt;
+        border: 1px solid #d880d1;
+        border-radius: 10px;
+        color:#d2ccff;
+        position: relative;
+        top: 230px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: linear-gradient(#001332, #321332);
+		z-index: 9999;
+      }
+#zatemnenie_zodiak2{
+        background:  rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+	    z-index: 9999;
+      }
+#zatemnenie_zodiak2:target {display: block;}
+      .close {
+        display: inline-block;
+        border: 1px solid #d880d1;
+        color: #d2ccff;
+		border-radius: 10px;
+        padding: 10px 10px;
+        margin: 10px;
+        text-decoration: none;
+        font-size: 13pt;
+        cursor:pointer;
+	    margin-bottom:0;
+      }
+      #okno_zodiak2{
+        max-width: 80%;
+        max-height: 55%;
+        text-align: center;
+        padding: 15px;
+		font-size: 13pt;
+        border: 1px solid #d880d1;
+        border-radius: 10px;
+        color:#d2ccff;
+        position: relative;
+        top: 230px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: linear-gradient(#001332, #321332);
+		z-index: 9999;
+      }
+
+#zatemnenie_element1{
+        background:  rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+	    z-index: 9999;
+      }
+#zatemnenie_element1:target {display: block;}
+      .close {
+        display: inline-block;
+        border: 1px solid #d880d1;
+        color: #d2ccff;
+		border-radius: 10px;
+        padding: 10px 10px;
+        margin: 10px;
+        text-decoration: none;
+        font-size: 13pt;
+        cursor:pointer;
+	    margin-bottom:0;
+      }
+      #okno_element1{
+        max-width: 80%;
+        max-height: 45%;
+        text-align: center;
+        padding: 15px;
+		font-size: 13pt;
+        border: 1px solid #d880d1;
+        border-radius: 10px;
+        color:#d2ccff;
+        position: relative;
+        top: 230px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: linear-gradient(#001332, #321332);
+		z-index: 9999;
+      }
+
+#zatemnenie_element2{
+        background:  rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+     position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+	    z-index: 9999;
+      }
+#zatemnenie_element2:target {display: block;}
+      .close {
+        display: inline-block;
+        border: 1px solid #d880d1;
+        color: #d2ccff;
+		border-radius: 10px;
+        padding: 10px 10px;
+        margin: 10px;
+        text-decoration: none;
+        font-size: 13pt;
+        cursor:pointer;
+	    margin-bottom:0;
+      }
+      #okno_element2{
+        max-width: 80%;
+        max-height: 45%;
+        text-align: center;
+        padding: 15px;
+		font-size: 13pt;
+        border: 1px solid #d880d1;
+        border-radius: 10px;
+        color:#d2ccff;
+        position: relative;
+        top: 230px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: linear-gradient(#001332, #321332);
+		z-index: 9999;
+      }
+
+      #zatemnenie_proc:target {display: block;}
+      .close {
+        display: inline-block;
+        border: 1px solid #d880d1;
+        color: #d2ccff;
+		border-radius: 10px;
+        padding: 10px 10px;
+        margin: 10px;
+        text-decoration: none;
+        font-size: 13pt;
+        cursor:pointer;
+		margin-bottom:0;
+		position: relative;
+      }
+#zatemnenie_type:target {display: block;}
+      .close {
+        display: inline-block;
+        border: 1px solid #d880d1;
+        color: #d2ccff;
+		border-radius: 10px;
+        padding: 10px 10px;
+        margin: 10px;
+        text-decoration: none;
+        font-size: 13pt;
+        cursor:pointer;
+		margin-bottom:0;
+		position: relative;
+      }
+
+#icons {
+	font-size: 20pt;
+	text-align: center;
+	color:#d880d1;
+	text-decoration:underline;
+	text-underline-offset:5px; 
+	text-decoration-thickness:1px;
+	right:10px; 
+	position:relative;
+	width:100%;
+	display: inline-block;
+}
+#icons img{
+	width:10%; 
+	top:10px;
+	position: relative;
+	display: inline-block;
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #321332;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+ 
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #d880d1;
+  border-top-color: #9964b8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+ 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#pr_style{
+	font-size: 20pt; 
+	color: #d880d1;
+	text-align:center;
+	position:relative;
+	display: inline-block;
+	width:10%; 
+	right:2px;
+}
+
+#success{
+    display:none;
+}
+
+#profile_photo{
+	max-height: 500px; 
+	max-width: 600px; 
+	overflow: hidden; 
+	border-radius: 15px;
+	border: 1px solid #d880d1;
+	display: flex;
+    justify-content: center;
+}
+
+li {
+    list-style-type: none;
+    margin:0;
+    overflow: visible;
+    border: 1px solid #4c2d5d;
+    padding:10px;
+    border-radius: 10px;
+    
+}
+
+#about {
+  padding: 10px 20px;
+  border: 1px solid #d880d1;
+  border-radius: 15px;
+  color: #d2ccff;
+}
+.markers li{
+   list-style-type: circle;
+   overflow:visible;
+   border:none;
+   text-align: left;
+   color:#d880d1;
+   padding:2px;
+}
+
+button {
+    font-family: 'Futuris Cyrillic', Microsoft YaHei Light, sans-serif !important;
+    font-size: 16px;
+    color: white;
+    background-color: #d880d1;
+    border: 2px solid #d880d1;
+    border-radius: 20px;
+    padding: 20px 20px;
+    line-height: 1.5;
+    font-weight: 600;
+    transparency:50%;
+}
+
+buttonnew {
+    font-family: 'Futuris Cyrillic', Microsoft YaHei Light, sans-serif !important;
+    font-size: 16px;
+    color: #d880d1;
+    border: 2px solid #d880d1;
+    border-radius: 10px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+/* Стиль еще одной кнопки */
+buttonnew {
+    font-family: 'Futuris Cyrillic', Microsoft YaHei Light, sans-serif !important;
+    background-color: #d880d1;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+	text-align: center;
+}
+/* Для что-то вроде меню наверху, будут полоски или номера для навигации*
+ /* в ul background-color: #830b72обычный цвет кнопок;/6c1343бордо  0d1d32синий  fae1e5нежно-розовый d2cc5fзолотой  ff4dffрозовый  840b72розово-бордовый  0f3a27зеленый  9964b8сиреневый  321332баклажан чистый-синий 001332
+#efefef; d2ccff к баклажану и золоту  d880d1  f2ce84золото
+
+/* части анкеты прячутся и показываются тут*/
+#regist2 {
+    display: none;
+    list-style-type: none;
+    text-align: left;
+    color:#d2ccff;
+}
+#regist {
+    display: none;
+    list-style-type: none;
+    text-align: left;
+    color:#d2ccff;
+}
+
+#next1 {
+    display: none;
+    list-style-type: none;
+    text-align: center;
+}
+
+#next {
+    display: block;
+    list-style-type: none;
+    text-align: center;
+}
+
+#tarifs {
+    display: none;
+}
+
+#matches {
+    display: none;
+}
+
+#aboutme {
+    display: none;
+}
+
+#soglash {
+    display: none;
+    list-style-type: none;
+    color:#d2ccff;
+}
+
+#politika {
+    display: none;
+    list-style-type: none;
+    color:#d2ccff;
+}
+
+#regist3 {
+    display: none;
+    list-style-type: none;
+    text-align: center;
+    color:#d2ccff;
+}
+
+#rectangle1 {
+    width: 100%;
+    height: 3px;
+    background: #d880d1;
+}
+
+#rectangle2 {
+    display: none;
+    width: 100%;
+    height: 3px;
+    background: #d880d1;
+}
+
+#rectangle3 {
+    display: none;
+    width: 100%;
+    height: 3px;
+    background: #d880d1;
+}
+
+/* профиль листается*/
+#prof1{
+    display: block;
+}
+
+#prof2{
+    display: none;
+}
+
+#changeprof{
+    display: none;
+    color:#d2ccff;
+}
+
+/* стиль таблицы*/
+.table-bordered {
+    border-collapse: separate;
+    width: 100%;
+    height: 10%;
+    background-color: transparent;
+    border-style: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-weight: 600;
+}
+
+.card {
+    background-image: url("../img/stars.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+    height: 100%;
+}
+
+details {
+  display:inline-block;
+  width:100%;
+  margin-bottom:.5rem;
+}
+summary::-webkit-details-marker{display:none;} 
+summary::-moz-list-bullet{list-style-type:none;}
+summary::marker{display:none;}
+summary {
+  display:inline-block;
+  position:relative;
+  font-size: 16px;
+}
+  details-new {
+  display:inline-block;
+  width:100%;
+  margin-bottom:.5rem;
+}
+details[open] summary:before {
+    float:left;
+    color:transparent;
+    background:url("../img/marker_open.png") no-repeat 50% 50% / 1em 1em;
+    width:1em;
+    height:1em;
+    content:"";
+    bottom:1px;
+	margin-right: 5px;
+	margin-left: 5px;
+	display: inline-block;
+	position: relative;
+}
+  summary:before {
+    float:left;
+    color:transparent;
+    background:url("../img/marker.png") no-repeat 50% 50% / 1em 1em;
+    width:1em;
+    height:1em;
+    content:"";
+    bottom:1px;
+	margin-right: 5px;
+	margin-left: 5px;
+	display: inline-block;
+	position: relative;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    img {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1200px) {
+    img {
+        width: 30%;
+    }
+}
+
+/* Поля ввода */
+input[type="text"], input[type="url"], input[type="time"], select {
+    width: 65%;
+    color: #d2ccff;
+    background: transparent;
+    /* Используется вся доступная ширина */
+    max-width: 768px;
+    /* Ограничение на максимальную ширину */
+    padding: 10px 5px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #844f9b;
+    font-size: 15px;
+    font-family: 'Futuris Cyrillic', Microsoft YaHei Light, sans-serif !important;
+    font-weight: 600;
+}
+
+/* Для поля ввода имени (когда оно пустое, появляется серый текст) */
+input::placeholder {
+    font-family: 'Futuris Cyrillic', Microsoft YaHei Light, sans-serif !important;
+    color: #d2ccff;
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* Для поля ввода даты рождения */
+#birthday {
+    font-family: 'Futuris Cyrillic', Microsoft YaHei Light, sans-serif !important;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}
+
+#birthday select {
+    font-family: 'Futuris Cyrillic', Microsoft YaHei Light, sans-serif !important;
+    flex: 1;
+    margin-right: 10px;
+    color: #d2ccff;
+    font-weight: 600;
+}
+
+/* выборные кнопки */
+.radio-buttons {
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+    grid-row-gap: 10px;
+    font-size: 15px;
+}
+
+.radio-buttons input[type="radio"] {
+    display: none;
+}
+
+.radio-buttons .button {
+    padding: 8px 14px;
+    border: 2px solid #44345c;
+    border-radius: 15px;
+    color: #d2ccff;
+    cursor: pointer;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+}
+
+/* Checked */
+.radio-buttons input[type="radio"]:checked + .button {
+    background-color: #d880d1;
+    color: #fff;
+}
+
+/* Hover */
+.radio-buttons .button:hover {
+    background-color: #9964b8;
+    color: #fff;
+}
+
+/* CSS кнопка новая как вариант */
+.button-28 {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #d880d1;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #d2ccff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Futuris Cyrillic', Microsoft YaHei Light, sans-serif !important;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    min-width: 0;
+    outline: none;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    width: 100%;
+    will-change: transform;
+}
+
+.button-28:disabled {
+    pointer-events: none;
+}
+
+.button-28:hover {
+    color: #fff;
+    background-color: #d880d1;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+
+}
+
+.button-28:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+/* Нижнее меню в профиле */
+.container {
+            display: flex;
+            flex-direction: column; 
+        }
+        
+
+/* Для placeholder в селектах (дата рождения) */
+#birthday selec ::placeholder {
+    font-family: 'Futuris Cyrillic', Microsoft YaHei Light, sans-serif !important;
+    color: #9964b8;
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* Фокус на поле ввода */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #9964b8;
+}
+
+/* Стиль кнопки */
+
+
+
+
+button:hover {
+    background-color: #d880d1;
+}
+
+buttonnew:hover {
+    background-color: #9964b8;
+}
+
+/* Стиль чекбоксов */
+.checkbox-btn-group {
+    display: inline-block;
+}
+.checkbox-btn-group:after { 
+    content: ""; 
+    clear: both; 
+    display: block;
+}
+.checkbox-btn-group label {
+    display: flex;
+    float: left;  
+    margin: 0;
+    user-select: none;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+    margin-right: 4px;
+}
+.checkbox-btn-group input[type=checkbox] {
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+.checkbox-btn-group span {
+    padding: 8px 14px;
+    border: 2px solid #44345c;
+    border-radius: 15px;
+    color: #d2ccff;
+    cursor: pointer;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    font-size: 15px;
+}
+
+ 
+/* Checked */
+.checkbox-btn-group input[type=checkbox]:checked + span {
+    background-color: #d880d1;
+    color: #fff;
+}
+/* Active */
+.checkbox-btn-group input[type=checkbox]:active:not(:disabled) + span {
+    background-color: #9964b8;
+    color: #fff;
+}
+ 
+/* Disabled */
+.checkbox-btn-group input[type=checkbox]:disabled + span {
+	color: #666;
+	cursor: default;
+}
+.checkbox-btn-group input[type=checkbox]:checked:disabled + span {
+	background: #f7efdc;
+}
+
+
+/* Оборачиваем кнопку в контейнер для выравнивания по правому краю */
+#button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+#return{
+     display: none;
+}
+#return1{
+     display: none;
+}
+#button-photos {
+    margin-top: 10px;
+}
+
+.suggestions {
+    position: absolute;
+    width: 149px;
+    display: none;
+    z-index: 1000;
+    background: linear-gradient(#001332, #321332);
+    color: #d2ccff;
+    font-weight: 600;
+    font-size: 13px;
+    border: 1px solid #2c1c35;
+    border-radius: 0 0 7px 7px;
+    list-style: none;
+    padding: 0;
+    margin-top: -10px;
+}
+
+.suggestions li {
+    border: none;
+    padding: 7px;
+    cursor: pointer;
+}
+.suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    #birthday-container {
+        flex-direction: column;
+    }
+
+    #birthday-container select {
+        width: 50%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 20px;
+    }
+    buttonnew  {
+		display: flex;
+       justify-content: space-around;
+       
+    }
+}
+
+/* Адаптивность для более широких экранов (например, для планшетов и ПК) */
+@media (min-width: 768px) {
+    button {
+        width: auto;
+    }
+     buttonnew {
+        width: auto;
+    }
+}

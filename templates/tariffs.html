@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="=ie=edge">
+    <title>Astro Love</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+</head>
+<body> 
+    <div id="tariff_info" style="margin-bottom:50px;">
+        <img src="/static/img/icon_tarif.png"style="width:40%; display:flex;justify-content: center; margin:auto;" />
+   
+  
+        <p style="font-size: 23pt;text-align:center;color:#d880d1;"><strong>ТАРИФЫ</strong></p>
+		<table class="table-bordered" >
+            <tbody>
+                <tr style="width: 33%; color:#d880d1;">
+            	<li><div id="icons" >
+        	    <img src="./static/img/icons_intro.png" id="icons img"/>
+        	    <strong>ЗНАКОМСТВО</strong></div>
+            	<ul class="markers">
+            	<li style="font-size: 13pt;">Подарок за первое заполнение анкеты</li>
+            	<li style="font-size: 13pt;">2 мэтча </li>
+            	<li style="font-size: 13pt;">2 прокрутки «Сколько в тебе любви»</li>
+            	<li style="font-size: 13pt;">2 прокрутки «Спидометра совместимости»</li>
+        		<p></p></ul>
+        	    <button class="button-28" disabled style="width:50%; margin:auto; display:block;" >УЖЕ ПОЛУЧЕН</button></li>
+        	    </tr>
+            	<tr style="width: 33%; color:#d880d1;">
+            	<li><div id="icons" >
+        	    <img src="./static/img/icons_start.png" id="icons img"/>
+        	    <strong>СТАРТ</strong></div>
+            	<ul class="markers">
+            	<li style="font-size: 13pt;">5 мэтчей </li>
+            	<li style="font-size: 13pt;">5 прокруток «Сколько в тебе любви»</li>
+            	<li style="font-size: 13pt;">5 прокруток «Спидометра совместимости»</li>
+            	<li style="font-size: 13pt;">месячный срок действия</li>
+            	<li style="font-size: 13pt;">подбор мэтчей в порядке очереди</li>
+            	<li style="font-size: 13pt;">совместимость по астрологии</li>
+        		<p></p></ul>
+        	    <button id="pay599" class="button-28" style="width:50%; margin:auto; display:block;" role="button">599₽</button></li>
+        	    </tr>
+        	    <tr style="width: 33%; color:#d880d1;">
+        	    <li><div id="icons" >
+        	    <img src="/static/img/icons_base.png" id="icons img" />
+        	    <strong>БАЗОВЫЙ</strong></div>
+            	<ul class="markers">
+            	<li style="font-size: 13pt;">10 мэтчей </li>
+            	<li style="font-size: 13pt;">10 прокруток «Сколько в тебе любви»</li>
+            	<li style="font-size: 13pt;">10 прокруток «Спидометра совместимости»</li>
+            	<li style="font-size: 13pt;">месячный срок действия</li>
+            	<li style="font-size: 13pt;">подбор мэтчей в порядке очереди</li>
+            	<li style="font-size: 13pt;">совместимость по астрологии</li>
+        		<p></p></ul>
+            	<button id="pay999" class="button-28" style="width:50%; margin:auto; display:block;" role="button">999₽</button></li>
+            	 </tr>
+                <tr style="width: 33%; color:#d880d1;">
+        	    <li><div id="icons" >
+        	    <img src="/static/img/icons_vip.png" id="icons img" />
+        	    <strong>VIP</strong></div>
+            	<ul class="markers">
+            	<li style="font-size: 13pt;">неограниченное количество мэтчей</li>
+            	<li style="font-size: 13pt;">неограниченное количество прокруток «Сколько в тебе любви»</li>
+            	<li style="font-size: 13pt;">неограниченное количество прокруток «Спидометра совместимости»</li>
+            	<li style="font-size: 13pt;">месячный срок действия</li>
+            	<li style="font-size: 13pt;">подбор мэтчей вне очереди</li>
+            	<li style="font-size: 13pt;">совместимость по всем программам</li>
+        		<p></p></ul>
+            	<button id="pay2999" class="button-28" style="width:50%; margin:auto; display:block;" role="button">2999₽</button></li>
+            	 </tr>
+            	<tr style="width: 33%; color:#d880d1;">
+            	<li><div id="icons" >
+        	    <img src="/static/img/icons_super_vip.png" id="icons img" />
+        	    <strong>SUPER VIP</strong></div>
+            	<ul class="markers">
+            	<li style="font-size: 13pt;">неограниченное количество мэтчей </li>
+            	<li style="font-size: 13pt;">неограниченное количество прокруток «Сколько в тебе любви»</li>
+            	<li style="font-size: 13pt;">неограниченное количество прокруток «Спидометра совместимости»</li>
+            	<li style="font-size: 13pt;">годовой срок действия</li>
+            	<li style="font-size: 13pt;">подбор мэтчей вне очереди</li>
+            	<li style="font-size: 13pt;">совместимость по всем программам</li>
+            	<p></p></ul>
+            	<button id="pay9999" class="button-28" style="width:50%; margin:auto;display:block;" role="button">9999₽</button></li></tr>
+            </tbody>
+        </table>
+        <!--<div style="text-align:center;"><button id="profile" class="button-28" style="width:70%;">Перейти в профиль</button></div>-->
+    </div>
+    <footer>
+        <table class="table-bordered" style="background-color:#2d1330;  margin:auto; width:100%; ">
+            <tbody>
+                <td><img src="/static/img/icon_profile.png" style="width:40%;margin:auto;" id="profile"/></td>
+                <td><img src="/static/img/icon_love.png" style="width:40%;margin:auto;" id="love_in_me"/></td>
+                <td><img src="/static/img/icon_match.png" style="width:40%;margin:auto;"id="match" ></td>
+                <td><img src="/static/img/icon_speedometr.png" style="width:40%;margin:auto;" id="speedometr"/></td>
+                <td><img src="/static/img/icon_tarif.png" style="width:40%; margin:auto;"id="payment"></td>
+            </tbody> 
+        </table>
+    </footer>
+    <script src="/static/js/menu_control.js?v=1.1.1"></script>
+    <script src="/static/js/tariffs_control.js?v=1.1.1"></script>
+</body>
+</html>
